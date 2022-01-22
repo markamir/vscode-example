@@ -17,6 +17,8 @@ spec:
       - name: facto-deployment
         image: facto-docker
         imagePullPolicy: IfNotPresent
+        command: ["node", "-e", "const http=require('http'); http.createServer( (req, res) => {res.end(); process.exit(0)}).listen(5000)"]
+
         ports:
         - containerPort: 5000
         resources:
